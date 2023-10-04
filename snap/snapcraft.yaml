@@ -1,16 +1,28 @@
 name: keylight-cli-unofficial # you probably want to 'snapcraft register <name>'
 base: core22 # the base snap is the execution environment for this snap
-version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
+version: '0.2.4' # just for humans, typically '1.2+git' or '1.3.2'
 summary: cli tool for Elgato KeyLight # 79 char long summary
+license: GPL-3.0
+website: https://github.com/timrichardson/keylight_control_unofficial
 description: |
-  cli tool for Elgato KeyLight. Uses avahi to find the lamp. Set brightness and color temperature.
+  cli tool for Elgato KeyLight. Uses avahi to find the lamp. Set brightness and color temperature. 
+      usage: `keylight_control.py [-h] [--bright BRIGHT] [--temp TEMP] [--ip IP]`
 
-grade: devel # must be 'stable' to release into candidate/stable channels
-confinement: devmode # use 'strict' once you have the right plugs and slots
+    Sets brightness and color temperature of an Elgato keylight. It assumes there is only one such light. ip of auto will attempt to find the IP address of the lamp.
+    If any parameter is skipped, the last saved value will be used. Settings are saved. In a future release, you will be able to provide a named profile to use saved settings.
+
+    options:
+      -h, --help       show this help message and exit
+      --bright BRIGHT  set brightness, 0 to 100. O will turn lamp off
+      --temp TEMP      set color K. Range is 2900K to 7000K
+      --ip IP          Use auto to find it with avahi aka zeroconf.
+
+grade: stable # must be 'stable' to release into candidate/stable channels
+confinement: strict # use 'strict' once you have the right plugs and slots
 
 apps:
-  keylight-cli-unofficial:
-    command: bin/keylight_control
+  keylight-control:
+    command: bin/keylight-control
     plugs:
       - network
       - network-bind
@@ -20,5 +32,3 @@ parts:
     plugin: python
     python-packages: [requests, zeroconf]  # specify your pip dependencies here
     source: .  # specify the source directory of your Python script
-
-

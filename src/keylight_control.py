@@ -104,8 +104,6 @@ def find_avahi_ip(service_name, timeout):
     return listener.target_address
 
 
-# elgato_ip_address = find_avahi_ip(service_name="elgato", timeout=5)
-
 def main():
     parser = argparse.ArgumentParser(
         description="Sets brightness and color temperature of an Elgato keylight. It assumes there is only one such light. ip of auto will attempt to find the IP address of the lamp."

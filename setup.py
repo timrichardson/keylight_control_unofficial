@@ -1,12 +1,12 @@
 from setuptools import setup
 
 setup(
-    name="keylight_control",
-    version="0.1",
+    name="keylight-control",
+    version="0.2",
     py_modules=["src"],
     entry_points={
         'console_scripts': [
-            'keylight_control = keylight_control:main',
+            'keylight-control=keylight_control:main',
         ],
     },
 )
