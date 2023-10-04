@@ -8,7 +8,9 @@ import argparse
 import os
 from zeroconf import ServiceBrowser, Zeroconf
 
-SETTINGS_FILE = "keylight_settings.json"
+data_dir = os.environ.get('SNAP_USER_DATA') or "."
+
+SETTINGS_FILE = os.path.join(data_dir,"keylight_settings.json")
 SETTINGS_SET = (
     "default"  # support multiple settings to enable saved profiles in a future version
 )
