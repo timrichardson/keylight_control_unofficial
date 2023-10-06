@@ -1,6 +1,8 @@
 # keylight_control_unofficial
 
-command line tool for Elgato
+command line tool for Elgato Keylight
+
+There can potentially be more than one of these, but I only have one, and this command is hardcoded to use the first one it finds. 
 
 ```
     usage: keylight_control [-h] [--bright BRIGHT] [--temp TEMP] [--ip IP]
@@ -17,3 +19,5 @@ command line tool for Elgato
   This is published on the snap store, where the command looks like this:
 
   `keylight-cli-unofficial.keylight-control --bright 50`
+
+  Credit to https://github.com/adamesch/elgato-key-light-api for work done in documenting the REST-style API.

@@ -8,6 +8,8 @@ import argparse
 import os
 from zeroconf import ServiceBrowser, Zeroconf
 
+# Credit to https://github.com/adamesch/elgato-key-light-api for work done in documenting the REST-style API.
+
 data_dir = os.environ.get('SNAP_USER_DATA') or "."
 
 SETTINGS_FILE = os.path.join(data_dir,"keylight_settings.json")

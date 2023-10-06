@@ -17,6 +17,8 @@ description: |
       --temp TEMP      set color K. Range is 2900K to 7000K
       --ip IP          Use auto to find it with avahi aka zeroconf.
 
+      # Credit to https://github.com/adamesch/elgato-key-light-api for work done in documenting the REST-style API.
+
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
