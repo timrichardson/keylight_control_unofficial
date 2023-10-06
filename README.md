@@ -16,4 +16,4 @@ command line tool for Elgato
 
   This is published on the snap store, where the command looks like this:
 
-  `keylight-cli-unofficial.keylight-control --bright=50`
+  `keylight-cli-unofficial.keylight-control --bright 50`
