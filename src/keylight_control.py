@@ -108,14 +108,15 @@ def find_avahi_ip(service_name, timeout):
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Sets brightness and color temperature of an Elgato keylight. It assumes there is only one such light. ip of auto will attempt to find the IP address of the lamp."
+        description="Sets brightness and color temperature of an Elgato keylight. It assumes there is only one such light. ip of auto will attempt to find the IP address of the lamp. " +
+        "Avoiding ip=auto after you have used it once is faster because the saved IP address is used."
     )
     parser.add_argument(
         "--bright", type=int, help="set brightness, 0 to 100. O will turn lamp off"
     )
     parser.add_argument("--temp", type=int, help="set color K. Range is 2900K to 7000K")
     parser.add_argument(
-        "--ip", type=str, help="Use auto to find it with avahi aka zeroconf. "
+        "--ip", type=str, help="Use auto to find it with avahi aka zeroconf, otherwise provide an IPV4 address."
     )
 
     args = parser.parse_args()
