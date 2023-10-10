@@ -122,6 +122,7 @@ def main():
     args = parser.parse_args()
 
     last_settings = get_saved_settings()
+    light_number = "0"  #if value is * it means all lamps, which is not implmentented
 
     elgato_ip = args.ip if args.ip else last_settings["ip"]
     if elgato_ip == "auto":
@@ -136,14 +137,15 @@ def main():
 
     if not temperature_kelvin:
         existing_values = get_light_data(elgato_ip)
-        temperature = existing_values["lights"][0]["temperature"]
+        temperature = existing_values["lights"][int(light_number)]["temperature"]
     else:
-        temperature = int(temperature_kelvin / 20.34)
+        temperature = int(temperature_kelvin / 20.31)
 
     send_light_data(elgato_ip, brightness, temperature)
 
     new_settings = {"bright": brightness, "temp": temperature_kelvin, "ip": elgato_ip}
-    save_settings(new_settings)
+    if brightness > 0:
+        save_settings(new_settings)
 
 if __name__ == "__main__":
     main()    

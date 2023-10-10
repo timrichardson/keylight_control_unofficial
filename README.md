@@ -18,6 +18,6 @@ There can potentially be more than one of these, but I only have one, and this c
 
   This is published on the snap store, where the command looks like this:
 
-  `keylight-cli-unofficial.keylight-control --bright 50`
+  `keylight-control --bright 50`
 
   Credit to https://github.com/adamesch/elgato-key-light-api for work done in documenting the REST-style API.
